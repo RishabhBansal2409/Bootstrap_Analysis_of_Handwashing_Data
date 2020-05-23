@@ -1,0 +1,2 @@
+# Bootstrap_Analysis_of_Handwashing_Data
+Bootstrap analysis of Semmelweis handwashing data
