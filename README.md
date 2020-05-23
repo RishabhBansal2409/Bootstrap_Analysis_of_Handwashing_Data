@@ -2,6 +2,8 @@
 
 Through this project , I have **performed boostrap analysis of the Handwashing dataset compiled** by Dr Ignaz Semmelweis , Hungarian physician and scientist , also described as the "saviour of mothers".**The analysis highlights the importance of washing of hands when the whole of the world is facing the CoronaVirus pandemic**.
 
+![](/images/Washing_Hands.PNG)
+
 If you are interested in reading the story of Dr Ignaz , please visit [here](https://github.com/RishabhBansal2409/Bootstrap_Analysis_of_Handwashing_Data/blob/master/Writeup%20on%20%20Dr%20Ignaz%20%20Semmelweis).
 
 **Steps involved in doing the bootstrap analysis** are as follows :-
