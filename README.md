@@ -12,15 +12,15 @@ If you are interested in reading the story of Dr Ignaz , please visit [here](htt
 
 2.**Calculating Proportion of deaths out of the number of women giving birth** and added it to our original dataframe.  
 
-`Observation` : At a first glance,**clinic 2 seems to be performing better (lesser proportion of deaths) when compared with clinic 1.**
+`Observation` : **Clinic 2 seems to be performing better (lesser proportion of deaths) when compared with clinic 1.**
 
 3.**Visualizing the death proportion for the two clinics** from the year 1841 till 1846 using a line chart.  
 
-`Observation` : We can clearly see from the line charts that the **death rate is much higher at Clinic 1 when compared to Clinic 2.**
+`Observation` : From the line charts , observed that the **death rate is much higher at Clinic 1 when compared to Clinic 2.**
 
 4.**Checking the monthly death rate to see the effect of 'Wash your Hands'** decree issued by the doctor.  
 
-`Observation` : Clealy observed the **significant decline in the concerned death proportion rate before and after the decree was issued**.
+`Observation` : **Significant decline in the concerned death proportion rate before and after the decree was issued**.
 
 5.Question before us is **How much did the handwashing reduce the monthly proportion of deaths on average?**  
 
