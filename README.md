@@ -18,6 +18,8 @@ If you are interested in reading the story of Dr Ignaz , please visit [here](htt
 
 3.**Visualizing the death proportion for the two clinics** from the year 1841 till 1846 using a line chart.  
 
+![](/images/Clinic_death_proportions.PNG)
+
 `Observation` : From the line charts , observed that the **death rate is much higher at Clinic 1 when compared to Clinic 2.**
 
 4.**Checking the monthly death rate to see the effect of 'Wash your Hands'** decree issued by the doctor.  
