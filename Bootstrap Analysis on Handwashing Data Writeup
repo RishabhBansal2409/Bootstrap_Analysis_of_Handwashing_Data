@@ -1,3 +1,5 @@
+Steps involved in doing the bootstrap analysis on the handwashing data are as follows :- 
+
 1.Importing the required libraries and the dataset.
 
 import pandas as pd
