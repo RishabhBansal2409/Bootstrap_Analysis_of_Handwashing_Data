@@ -1,0 +1,67 @@
+1.Importing the required libraries and the dataset.
+
+import pandas as pd
+yearly = pd.read_csv('C://users//nisha//Desktop//datasets/yearly_deaths_by_clinic.csv')
+yearly
+
+Observation :- We observed alarming no of women died as the result of childbirth, most of them from childbed fever.
+
+2.Calculating Proportion of deaths out of the number of women giving birth and adding it to our original dataframe.
+
+This metric would let us compare the deaths at both the clinics.
+
+yearly["proportion_deaths"] = yearly['deaths']/yearly['births']
+yearly1 = yearly[yearly['clinic'] == 'clinic 1']
+yearly2 = yearly[yearly['clinic'] == 'clinic 2']
+print(yearly1)
+print(yearly2)
+
+Observation : At a first glance , clinic 2 seems to be performing better (less deaths) in terms of proportion of deaths when compared with clinic 1.
+
+3.Visualizing the death proportion for the two clinics from the year 1841 till 1846 using a line chart.
+
+%matplotlib inline
+ax = yearly1.plot(x = 'year' , y = 'proportion_deaths' , label = 'clinic 1')
+yearly2.plot(x = 'year' , y = 'proportion_deaths' , label = 'clinic 2' , ax = ax)
+ax.set_ylabel('Proportion deaths');
+
+Observation : We can clearly see from the line charts that the death rate is much higher at Clinic 1 when compared to Clinic 2.
+
+4.Checking the monthly death rate to see the effect of 'Wash your Hands' decree issued by the doctor.
+
+monthly = pd.read_csv('C://users//nisha//Desktop//datasets/monthly_deaths.csv' , parse_dates = ['date'])
+monthly['proportion_deaths'] = monthly['deaths']/monthly['births']
+monthly.head()
+ax = monthly.plot(x = 'date' , y = 'proportion_deaths')
+ax.set_ylabel('Proportion deaths');
+handwashing_start = pd.to_datetime('1847-06-01')
+before_washing = monthly[monthly['date'] < handwashing_start]
+after_washing = monthly[monthly['date'] >= handwashing_start]
+ax = before_washing.plot(x = 'date' , y = 'proportion_deaths' , label = 'before_washing_hands')
+after_washing.plot(x = 'date' , y = 'proportion_deaths' , label = 'after_washing_hands' , ax = ax)
+ax.set_ylabel('Proportion deaths');
+
+Observation : Plotting the death proportion chart before and after the decree was issued , we can clealy observe the significant decline in the concerned rate.
+
+5.Question before us is How much did the handwashing reduce the monthly proportion of deaths on average?
+
+before_proportion = before_washing['proportion_deaths']
+after_proportion = after_washing['proportion_deaths']
+mean_diff = after_proportion.mean() - before_proportion.mean()
+mean_diff
+
+Observation : Handwashing reduced the proportion of deaths by around 8 percentage points.
+
+6.Building Confidence interval to get sense of the uncertainty around how much handwashing reduces mortalities using bootstrap method.
+
+boot_mean_diff = []
+for i in range(3000):
+    boot_before = before_proportion.sample(frac = 1 , replace = True)
+    boot_after = after_proportion.sample(frac = 1 , replace = True )
+    boot_mean_diff.append(boot_after.mean() - boot_before.mean())
+
+confidence_interval = pd.Series(boot_mean_diff).quantile([0.025,0.975])
+confidence_interval
+
+Observation : According to a 95% confidence interval , handwashing reduced the proportion of deaths by between 6.7 and 10 percentage points.
+
